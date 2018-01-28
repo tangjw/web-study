@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定导航栏</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav, .top {
+            margin: 0 auto;
+            width: 1423px;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+    </style>
+
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        //jQuery入口函数
+        $(document).ready(function () {
+
+
+        });
+
+        $(function () {
+            var topHeight = $(".top").height();
+            $(window).scroll(function () {
+                var docScrollTop = $(document).scrollTop();
+
+                var $nav = $(".nav");
+                var $main = $(".main");
+
+                if (docScrollTop >= topHeight) {
+                    $nav.css({"position": "fixed", "top": 0});
+                    $main.css({"margin-top": $nav.height()});
+                } else {
+                    $nav.css({"position": "static"});
+                    $main.css({"margin-top": 0});
+                }
+
+            });
+        })
+
+
+    </script>
+
+</head>
+<body>
+
+<div class="top">
+    <img src="images/top.png" alt="">
+
+</div>
+
+<div class="nav">
+    <img src="images/nav.png" alt="">
+
+</div>
+
+<div class="main">
+    <img src="images/main.png" alt="">
+
+</div>
+
+
+</body>
+</html>
